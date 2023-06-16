@@ -1,5 +1,6 @@
 import { FlatList, StyleSheet, View, Button } from 'react-native';
 import { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
 
 import GoalItem from './components/GoalItem';
 import GoalInput from './components/GoalInput';
@@ -21,7 +22,7 @@ export default function App() {
         text: enteredGoalText,
         key: Math.random().toString()
       }]);
-     endAddGoalHandler();
+    endAddGoalHandler();
   };
 
   function deleteGoalHandler(goalKey) {
@@ -33,33 +34,38 @@ export default function App() {
   }
 
   return (
-    <View style={styles.appContainer}>
-      <Button
-        title="Add new Goal"
-        color="#5e0acc"
-        onPress={startAddGoalHandler} />
-        {modalIsVisible && <GoalInput visible={modalIsVisible} onAddGoal={addGoalHandler} onCancel = {endAddGoalHandler}/>}
-     
-      <View style={styles.goalsContainer}>
-        <FlatList data={courseGoals}
-          renderItem={itemData => {
+    <>
+      <StatusBar style='light' />
+      <View style={styles.appContainer}>
+        <Button
+          title="Add new Goal"
+          color="#5e0acc"
+          onPress={startAddGoalHandler} />
+        {modalIsVisible && <GoalInput visible={modalIsVisible} onAddGoal={addGoalHandler} onCancel={endAddGoalHandler} />}
 
-            return <GoalItem
-              text={itemData.item.text}
-              id={itemData.item.key}
-              onDeleteItem={deleteGoalHandler}
-            />;
-          }}
-          keyExtractor={(item, index) => {
-            return item.key;
-          }}
+        <View style={styles.goalsContainer}>
+          <FlatList
+            data={courseGoals}
 
-          alwaysBounceVertical={false}>
-        </FlatList>
+            renderItem={itemData => {
+              return (<GoalItem
+                text={itemData.item.text}
+                id={itemData.item.key}
+                onDeleteItem={deleteGoalHandler}
+              />);
+            }}
+            keyExtractor={(item, index) => {
+              return item.key;
+            }}
+
+            alwaysBounceVertical={false}>
+          </FlatList>
+        </View>
+
+
       </View>
+    </>
 
-
-    </View>
   );
 }
 
@@ -75,7 +81,6 @@ const styles = StyleSheet.create({
     flex: 1,
 
   },
-
   goalsContainer: {
     marginTop: 20,
     flex: 9,

@@ -1,0 +1,8 @@
+{
+    "avdmanager.sdkPath": "C:\\Users\\onur9\\AppData\\Local\\Android\\Sdk\\tools\\bin",
+    "avdmanager.sdkManager": "C:\\Users\\onur9\\AppData\\Local\\Android\\Sdk\\tools\\bin\\sdkmanager.bat",
+    "avdmanager.executable": "C:\\Users\\onur9\\AppData\\Local\\Android\\Sdk\\tools\\bin\\avdmanager.bat",
+    "avdmanager.cmdVersion": "C:\\Users\\onur9\\AppData\\Local\\Android\\Sdk\\tools\\bin",
+    "avdmanager.emulator": "C:\\Users\\onur9\\AppData\\Local\\Android\\Sdk\\emulator\\emulator.exe -avd Pixel_5_API_29 -netdelay none -netspeed full ",
+    "avdmanager.emulatorOpt": "C:\\Users\\onur9\\AppData\\Local\\Android\\Sdk\\emulator\\emulator.exe -avd Pixel_5_API_29 -netdelay none -netspeed full"
+}
