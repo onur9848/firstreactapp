@@ -1,9 +1,10 @@
-import { FlatList, StyleSheet, View, Button } from 'react-native';
+import { FlatList, StyleSheet, View, Button, Text } from 'react-native';
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 
 import GoalItem from './components/GoalItem';
 import GoalInput from './components/GoalInput';
+import MeasuremantTable from './components/cards/MeasuremantTable';
 
 export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
@@ -32,12 +33,13 @@ export default function App() {
         (goal) => goal.key !== goalKey);
     })
   }
+  
 
   return (
     <>
       <StatusBar style='light' />
       <View style={styles.appContainer}>
-        <Button
+        {/* <Button
           title="Add new Goal"
           color="#5e0acc"
           onPress={startAddGoalHandler} />
@@ -59,9 +61,11 @@ export default function App() {
             }}
 
             alwaysBounceVertical={false}>
-          </FlatList>
-        </View>
-
+          </FlatList> 
+        </View>*/}
+       
+       <MeasuremantTable >1.Sütün</MeasuremantTable>
+        
 
       </View>
     </>
@@ -79,11 +83,12 @@ const styles = StyleSheet.create({
     paddingTop: '15%',
     paddingHorizontal: 20,
     flex: 1,
+  },
+  tableContainer:{
+    flex:1,
+    justifyContent: 'space-around'    ,
+    alignItems:'stretch'
 
-  },
-  goalsContainer: {
-    marginTop: 20,
-    flex: 9,
-  },
+  }
 
 });
